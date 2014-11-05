@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimal-ui">
+  {Asset::css('/swatter/default.css')}
+  {Asset::css('/swatter/common.css')}
+  {Asset::css('/swatter/jquery.custombox.css')}
+  {Asset::css('/swatter/nav.css')}
+  {Asset::css('/swatter/map.css')}
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css">
+  <title>map</title>
+</head>
+<body ontouchmove="event.preventDefault()">
+  {include file='file:swatter/nav.tpl'}
+  {include file='file:swatter/sub-nav.tpl'}
+  <div class="main">
+    <div id="map_canvas"></div>
+    <div class="carousel group"></div>
+    <div class="map-footer">
+      <a href="/swatter/list">リストビュー</a>
+    </div>
+  </div>
+  <button class="modal-dummy-button" style="display: none">aiueo</button>
+  <div class="modal-window">
+    <h2>loading...</h2>
+    <h3>あなたの投稿したエリアのメイヤー</h3>
+    <ol>
+    </ol>
+    <div id="loading"></div>
+  </div>
+
+  <script src="//maps.google.com/maps/api/js?sensor=false"></script>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  {Asset::js('/swatter/map.js')}
+  {Asset::js('/swatter/location_util.js')}
+  <script src="//cdn.jsdelivr.net/jquery.slick/1.3.7/slick.min.js"></script>
+  {Asset::js('/swatter/jquery.custombox.js')}
+  <script>
+    $(function() {
+      function getQueryVariable(variable) {
+        var query = window.location.search.substring(1),
+        vars = query.split("&");
+
+        for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split("=");
+          if (pair[0] == variable) {
+            return pair[1];
+          }
+        }
+        return false;
+      }
+
+      $('.carousel').slick({
+        centerMode: true,
+        arrows: false
+      });
+
+      $('.modal-dummy-button').on('click', function(e) {
+        $.fn.custombox(this, {
+          url: '.modal-window',
+          effect: 'fadein',
+          responsive: true
+        });
+        e.preventDefault();
+      });
+
+      if (getQueryVariable('mayor_area')) {
+
+        var mayor_area = getQueryVariable('mayor_area');
+        
+        window.location_util.get_mayors_by_area(function(data) {
+          $('#loading').hide();
+          $('.modal-window > ol').empty();
+          for (var key in data) {
+            $('.modal-window > h2').html(data[key].area.name);
+            $('.modal-window > ol').append(
+              $('<li/>').append(
+                $('<ul/>').addClass('group').append(
+                  $('<li/>').append(
+                    $('<span/>').addClass('mayor-rank').text('#' + data[key].rank)
+                  ),
+                  $('<li/>').append(
+                    $('<img/>').addClass('mayor-thumbnail').attr('src', data[key].user.profile_image)
+                  ),
+                  $('<li/>').append(
+                    $('<h4/>').addClass('mayor-name').text('@' + data[key].user.screen_name)
+                  )
+                )
+              )
+            );
+          }
+        }, mayor_area);
+        
+        $('.modal-dummy-button').trigger('click');
+      }
+    });
+  </script>
+</body>
+</html>

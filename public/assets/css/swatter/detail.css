@@ -1,0 +1,155 @@
+body {
+  background-color: #eee;
+}
+
+.main {
+  margin-top: 50px;
+}
+
+.detail-header {
+  height: 190px;
+  background-color: #333;
+  margin-bottom: 10px;
+}
+
+.detail-header img {
+  position: absolute;
+  width: 320px;
+  height: 190px;
+}
+
+.header-image-wrapper {
+  position: relative;
+  margin: 0 auto;
+  width: 320px;
+  height: 190px;
+}
+
+.detail-header-shadow {
+  width: 320px;
+  height: 190px;
+  position: absolute;
+  background: -webkit-gradient(linear, center center, center bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1)));
+  font-size: .8em;
+}
+
+.detail-header-shadow ul {
+  position: absolute;
+  bottom: 10px;
+  left: 24px;
+  color: #fff;
+}
+
+.detail-info {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 85%;
+  font-size: .8em;
+}
+
+.like-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  width: 85%;
+  height: 30px;
+  border: none;
+  background: #eee url('/assets/img/swatter/heart-black.png') no-repeat 5px 50%;
+  border-bottom: 1px solid #ddd;
+  font-size: .9em;
+  font-weight: normal;
+  text-align: left;
+  line-height: 1;
+}
+
+.like-button.pushed {
+  background: url('/assets/img/swatter/heart-pink.png') no-repeat 5px 50%;
+  color: #EC4989;
+}
+
+#map_canvas, #navigation_canvas {
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  width: 85%;
+  height: 300px;
+}
+
+#navigation_canvas {
+  display: none;
+}
+
+.add-map-style{
+  display: block;
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  height: 300px;
+}
+
+.nav-bar-left a img {
+  padding: 18px 0;
+  padding-right: 20px;
+  width: 10px;
+  height: 17px;
+}
+
+.nav-bar-left a img:hover {
+  opacity: .5;
+}
+
+.chair-list > li {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 180px;
+  min-height: 180px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.chair-list > li > a {
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, center center, center bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1)));
+  display: block;
+}
+
+.chair-info {
+  position: absolute;
+  bottom: 14px;
+  left: 24px;
+  color: #fcfcfc !important;
+}
+
+.chair-info li {
+  margin-bottom: 7px;
+  font-size: .9em;
+  line-height: 1;
+}
+
+.chair-info li strong {
+  font-weight: bold;
+}
+
+.time-and-distance {
+  padding: 1px 0;
+  padding-left: 18px;
+  background: url('/assets/img/swatter/walk.png') no-repeat 0 50%;
+  background-size: 10px 100%;
+}
+
+.checkins {
+  padding: 1px 0;
+  padding-left: 18px;
+  background: url('/assets/img/swatter/pin.png') no-repeat 0 50%;
+  background-size: 8px 100%;
+}
+
+.likes {
+  padding-left: 18px;
+  background: url('/assets/img/swatter/heart.png') no-repeat 0 50%;
+  background-size: 11px 100%;
+

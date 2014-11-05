@@ -1,0 +1,85 @@
+.main {
+  position: absolute !important;
+  width: 100% !important;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.post-button {
+  padding: 5px 10px;
+  border: none;
+  background: #3BB1BD;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.post-poster-info {
+  position: relative;
+}
+
+.post-poster-info img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.post-poster-info h2 {
+  margin-bottom: -2px;
+  font-weight: bold; 
+}
+
+.post-poster-info h2,
+.post-poster-info h3 {
+  padding-left: 50px;
+}
+
+.post-toggle {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+#social {
+  display: none;
+}
+
+label[for="social"] {
+  padding: 2px 0;
+  padding-left: 25px;
+  background: white url('/assets/img/swatter/twitter-off.png') no-repeat 0 50%;
+  background-size: 20px 100%;
+  color: #ccc;
+  font-size: .9em;
+}
+
+label[for="social"].is-selected {
+  background-image: url('/assets/img/swatter/twitter-on.png');
+  color: #00b0ed;
+}
+
+.post-textarea {
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 100%;
+  height: 100px;
+  border: none;
+  font-size: 1.1em;
+}
+
+.post-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  border-top: 1px solid #ddd;
+  line-height: 30px;
+  text-align: center;
+}
+
+.post-footer a {
+  text-decoration: none;
+}

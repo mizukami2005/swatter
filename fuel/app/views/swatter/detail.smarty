@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimal-ui">
+  {Asset::css('/swatter/default.css')}
+  {Asset::css('/swatter/common.css')}
+  {Asset::css('/swatter/nav.css')}
+  {Asset::css('/swatter/detail.css')}
+  <title>detail</title>
+</head>
+<body>
+  <div class="nav">
+    <h1>loading... </h1>
+    <span class="nav-bar-left">
+      <a href="">
+        {Asset::img('swatter/back-button.png')}
+      </a>
+    </span>
+    <span class="nav-bar-right"></span>
+  </div>
+  <div class="main">
+    <div class="detail-header">
+      <div class="header-image-wrapper">
+        <img src="">
+        <div class="detail-header-shadow">
+          <ul class="chair-info">
+            <li class="time-and-distance">- 分 ( - m )</li>
+            <li class="checkins">- check-in</li>
+            <li class="likes">- likes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <button class="like-button">
+      Like?
+    </button>
+    <a class="add-map-style" href=""></a>
+    <div id="map_canvas"></div>
+    <div id="navigation_canvas"></div>
+  </div>
+  <div id="loading"></div>
+  <script src="//maps.google.com/maps/api/js?sensor=false"></script>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  {Asset::js('/swatter/location_util.js')}
+  {Asset::js('/swatter/detail.js')}
+  <script>
+    $(function() {
+      $('.nav-bar-left a').attr('href', document.referrer); 
+    });
+  </script>
+</body>
+</html>

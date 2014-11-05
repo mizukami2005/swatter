@@ -1,0 +1,27 @@
+.top-masthead {
+    margin-top: 140px;
+    margin-bottom: 190px;
+}
+
+.top-masthead h1 {
+  color: #333;
+  font-size: 3.5em;
+  text-align: center;
+}
+
+.top-masthead p {
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.find-place-button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 280px;
+  background: #364353;
+  border: none;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
